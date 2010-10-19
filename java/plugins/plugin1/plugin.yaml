@@ -1,0 +1,2 @@
+plugin_class: com.estontorise.plugin.test.Plugin1
+dependencies: plugin2
