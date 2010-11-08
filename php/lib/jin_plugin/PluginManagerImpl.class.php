@@ -34,7 +34,7 @@
 		public function init() {
 			$dh = opendir($this->pluginsDir);
 			while ($pluginDir = readdir($dh)) {
-				if($pluginDir == '.' || $pluginDir == '..')
+				if(strpos($pluginDir, '.') === 0)
 					continue;
 				$this->loadPlugin($this->pluginsDir . '/' . $pluginDir);
 			}
