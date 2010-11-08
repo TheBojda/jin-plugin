@@ -8,6 +8,7 @@
 			$this->pluginsDir = $pluginsDir;
 			$this->loadedPlugins = array();
 			$this->services = array();
+			$this->actionProcessors = array();
 		}
 		
 		private function loadPlugin($pluginDir) {
@@ -48,6 +49,19 @@
 			return $this->services[$name];
 		}
 		
+		public function addActionProcessor($actionName, $processor) {
+			$actionProcessors = &$this->actionProcessors;
+			if(!isset($actionProcessors[$actionName]))
+				$actionProcessors[$actionName] = array();
+			$actionProcessors[$actionName][] = $processor;	
+		}
+		
+		public function callAction($actionName, &$context) {
+			$actionProcessors = &$this->actionProcessors;
+			$actionList = $actionProcessors[$actionName];
+			foreach($actionList as $action)
+				$action->call($context);
+		}
 	}
 	
 ?>
