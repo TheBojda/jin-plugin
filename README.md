@@ -184,13 +184,13 @@ The update_url points to the update site. The update site can be called with or 
 
 The first is ```installPlugin```. The parameter of the method is the url of an update site. This method calls the update site URL without any parameter, downloads the zip file from the given url, unpacks it to the plugin directory, and deletes zip file.
 
-Usage: ```php $pm->installPlugin('http://localhost/jin-plugin-php/update_test.php');```
+Usage: ```$pm->installPlugin('http://localhost/jin-plugin-php/update_test.php');```
 
 The ```checkPluginUpdates``` method checks the update site of the plugins, and gives back an associative list, where an url list is assigned to every plugin.
 
 The third method is ```updatePlugin```, which downloads and installs the updates for the plugin which name are given in the parameter list. 
 
-Usage: ```php $pm->updatePlugin('plugin3');```
+Usage: ```$pm->updatePlugin('plugin3');```
 
 See also:
 
